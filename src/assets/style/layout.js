@@ -306,4 +306,7 @@ export default StyleSheet.create({
         backgroundColor:'rgba(0,0,0,0.1)',
         width: StyleConfig.getWidthByColumn(1)
     }
+
+    // New style
+
 });

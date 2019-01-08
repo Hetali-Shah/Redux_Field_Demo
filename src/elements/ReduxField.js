@@ -122,118 +122,13 @@ class CustomField extends Component {
                     />
                     {rightIcon}
                 </Item>
-                {
-                    label != null &&
-                    !noInfo && ((showSideError)
-                            ? (hasError && touched)
-                                ? <View style={LayoutStyle.sideInputView}>
-                                    <View style={LayoutStyle.labelInputView}>
-                                        {
-                                            labelIcon
-                                                ? labelIcon
-                                                : <Image
-                                                    source={AppImages[`${labelIconSource}Error`]}
-                                                    style={[labelIconStyle]}
-                                                />
-                                        }
-                                        <Text style={[LayoutStyle.labelInputError, errorInputStyle]}>{label}</Text>
-                                    </View>
-                                    <Text style={[LayoutStyle.sideErrorInput, sideErrorInputStyle]}>{error}</Text>
-                                </View>
-                                : (!hasError && touched && changeSuccessColor)
-                                    ? <View style={LayoutStyle.sideInputView}>
-                                        <View style={LayoutStyle.labelInputView}>
-                                            {
-                                                labelIcon
-                                                    ? labelIcon
-                                                    : <Image
-                                                        source={AppImages[`${labelIconSource}Success`]}
-                                                        style={[labelIconStyle]}
-                                                    />
-                                            }
-                                            <Text style={[labelInput]}>
-                                                <Text style={[labelInput, labelInputStyle]}>{label}</Text>
-                                                <Text style={[LayoutStyle.labelInfo, labelInfoStyle]}>
-                                                    {labelInfo}
-                                                </Text>
-                                            </Text>
-                                        </View>
-                                        {(info) && <Text style={[LayoutStyle.sideInputInfo, infoStyle, sideErrorInputStyle]}>{info}</Text>}
-                                    </View>
-                                    : <View style={LayoutStyle.sideInputView}>
-                                        <View style={LayoutStyle.labelInputView}>
-                                            {
-                                                labelIcon
-                                                    ? labelIcon
-                                                    : <Image
-                                                        source={AppImages[labelIconSource]}
-                                                        style={[labelIconStyle]}
-                                                    />
-                                            }
-                                            <Text style={[labelInput]}>
-                                                <Text style={[labelInput, labelInputStyle]}>{label}</Text>
-                                                <Text style={[LayoutStyle.labelInfo, labelInfoStyle]}>
-                                                    {labelInfo}
-                                                </Text>
-                                            </Text>
-                                        </View>
-                                        {(info) && <Text style={[LayoutStyle.sideInputInfo, infoStyle, sideErrorInputStyle]}>{info}</Text>}
-                                    </View>
-                            : (hasError && touched)
-                                ? <View style={LayoutStyle.sideInputView}>
-                                    <Text style={[LayoutStyle.labelInputError, errorInputStyle]}>{error}</Text>
-                                    {(info) && <TouchableOpacity disabled={!onInfoPress} onPress={(onInfoPress) ? onInfoPress : () => { }} style={{ flexDirection: 'row' }}>
-                                        <Text style={[LayoutStyle.sideInputInfo, infoStyle, sideErrorInputStyle]}>{info}</Text>
-                                        {infoIcon}
-                                    </TouchableOpacity>}
-                                </View>
-                                : (!hasError && touched && changeSuccessColor)
-                                    ? <View style={LayoutStyle.sideInputView}>
-                                        <View style={LayoutStyle.labelInputView}>
-                                            {
-                                                labelIcon
-                                                    ? labelIcon
-                                                    : <Image
-                                                        source={AppImages[`${labelIconSource}Success`]}
-                                                        style={[labelIconStyle]}
-                                                    />
-                                            }
-                                            <Text style={[labelInput]}>
-                                                <Text style={[labelInput, labelInputStyle]}>{label}</Text>
-                                                <Text style={[LayoutStyle.labelInfo, labelInfoStyle]}>
-                                                    {labelInfo}
-                                                </Text>
-                                            </Text>
-                                        </View>
-                                        {(info) && <TouchableOpacity disabled={!onInfoPress} onPress={(onInfoPress) ? onInfoPress : () => { }} style={{ flexDirection: 'row' }}>
-                                            <Text style={[LayoutStyle.sideInputInfo, infoStyle, sideErrorInputStyle]}>{info}</Text>
-                                            {infoIcon}
-                                        </TouchableOpacity>}
-                                    </View>
-                                    : <View style={LayoutStyle.sideInputView}>
-                                        <View style={LayoutStyle.labelInputView}>
-                                            {
-                                                labelIcon
-                                                    ? labelIcon
-                                                    : <Image
-                                                        source={AppImages[labelIconSource]}
-                                                        style={[labelIconStyle]}
-                                                    />
-                                            }
-                                            <Text style={[labelInput]}>
-                                                <Text style={[labelInput, labelInputStyle]}>{label}</Text>
-                                                <Text style={[LayoutStyle.labelInfo, labelInfoStyle]}>
-                                                    {labelInfo}
-                                                </Text>
-                                            </Text>
-                                        </View>
-                                        {(info) && <TouchableOpacity disabled={!onInfoPress} onPress={(onInfoPress) ? onInfoPress : () => { }} style={{ flexDirection: 'row' }}>
-                                            <Text style={[LayoutStyle.sideInputInfo, infoStyle, sideErrorInputStyle]}>{info}</Text>
-                                            {infoIcon}
-                                        </TouchableOpacity>}
-                                    </View>
-                    )
-                }
+                <View style={LayoutStyle.sideInputView}>
+
+                        <Text style={hasError && touched ? [LayoutStyle.labelInputError, errorInputStyle] : (!hasError && touched && changeSuccessColor) ? [labelInput, labelInputStyle] : null }>
+                            {label}
+                        </Text>
+
+                </View>
             </View>
         )
     }
